@@ -8,12 +8,13 @@ app.config['SECRET_KEY'] = "queenmillie2020"
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
+responses = []
+
 
 @app.route('/', methods=['GET', 'POST'])
 def show_home():
     if request.method == 'POST':
-        session['responses'] = []
-        return redirect('/questions/0')
+        return redirect('/question/0')
 
     survey_title = satisfaction_survey.title
     survey_instructions = satisfaction_survey.instructions
